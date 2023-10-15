@@ -4,7 +4,7 @@ import { Menu } from './components/Menu';
 import React, { useState } from 'react';
 
 function App() {
-  const [hasGameStarted, setHasGameStarted] = useState(false);
+  const [hasGameStarted, setHasGameStarted] = useState<boolean>(false);
 
   return (
     <>

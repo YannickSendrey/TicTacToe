@@ -1,7 +1,13 @@
 import React from "react";
+import { LogoHeader } from "./LogoHeader";
 
 export const Menu = () => {
     return (
-        <div>Menu</div>
+        <>
+            <LogoHeader />
+            <main>
+                <div>oui menu</div>
+            </main>
+        </>
     );
 }
