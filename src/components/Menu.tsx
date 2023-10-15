@@ -16,11 +16,11 @@ export const Menu = () => {
                         <img src="/assets/icon-o.svg" alt="orange O" id="o" className="letterImg" />
                     </div>
                 </section>
-                <h2>REMEMBER : X GOES FIRST</h2>
+                <h2 id="remember">REMEMBER : X GOES FIRST</h2>
             </main>
             <footer>
-                <button>NEW GAME (VS CPU)</button>
-                <button>NEW GAME (VS PLAYER)</button>
+                <button id="buttonCPU">NEW GAME (VS CPU)</button>
+                <button id="buttonPlayer">NEW GAME (VS PLAYER)</button>
             </footer>
         </div>
     );
