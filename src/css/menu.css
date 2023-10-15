@@ -1,0 +1,88 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    gap: 8%;
+    
+}
+
+#logo {
+    width: 15%;
+    margin: 0 auto;
+}
+
+main {
+    margin: -5% auto;
+    width:80%;
+    height: 30%;
+    background-color: rgba(31, 54, 65, 0.8);
+    padding: 5%;
+    border-radius: 0.8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0px 0.4em #101b20;
+    gap: 15%;
+}
+
+section {
+    background-color: #202A37;
+    display: flex;
+    width: 100%;
+    min-height: 50%;;
+    border-radius: 0.8em;
+}
+
+.letterbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+#xbox {
+    filter:grayscale(80%);
+}
+
+#obox {
+    background-color: #A8BFC9;
+    border-top-right-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+}
+
+#o {
+    filter:invert(100%);
+    filter:brightness(10%)
+}
+
+.letterImg {
+    width: 15%;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+#remember {
+    color: slategray;
+}
+
+button {
+    margin: 0 5% 3% 5%;
+    border: none;
+    width:90%;
+    height: 4em;
+    border-radius: 0.8em;
+}
+
+#buttonCPU {
+    background-color: #F2B137;
+    box-shadow: 0px 0.4em #c99330;
+}
+
+#buttonPlayer {
+    background-color: #31C3BD;
+    box-shadow: 0px 0.4em #248d8a;
+}
