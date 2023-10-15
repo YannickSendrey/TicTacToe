@@ -1,12 +1,14 @@
 import './App.css'
 import { GameBoard } from './components/GameBoard';
 import { Menu } from './components/Menu';
+import React, { useState } from 'react';
 
 function App() {
+  const [hasGameStarted, setHasGameStarted] = useState(false);
+
   return (
     <>
-      <Menu />
-      <GameBoard />
+      {hasGameStarted ? <GameBoard/> : <Menu/>}
     </>
     )
 }
