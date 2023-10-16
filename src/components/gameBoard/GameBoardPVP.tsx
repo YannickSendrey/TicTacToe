@@ -1,10 +1,12 @@
 import { GameBoardProps } from "../types.ts";
+import { Tile } from "./Tile.tsx";
+import { Header } from "./Header.tsx";
 
 export const GameBoardPVP = ({player1Pick}: GameBoardProps) => {
     return (
-        <>
-            <h1>VS Player2 youhou</h1>
+        <body>
+            <Header />
             <div>{player1Pick}</div>
-        </>
+        </body>
     );
 }
