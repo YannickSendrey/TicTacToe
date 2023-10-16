@@ -1,5 +1,6 @@
 import './App.css'
-import { GameBoard } from '../components/gameBoard/GameBoard.tsx';
+import { GameBoardPVP } from '../components/gameBoard/GameBoardPVP.tsx';
+import { GameBoardCPU } from '../components/gameBoard/GameBoardCPU.tsx';
 import { Menu } from '../components/menu/Menu.tsx';
 import { GameType, Player1Pick } from '../components/types.ts';
 import { useState } from 'react';
@@ -12,7 +13,13 @@ function App() {
 
   return (
     <>
-      {hasGameStarted ? <GameBoard gameType={gameType} player1Pick={player1Pick} /> : <Menu setGameType={setGameType} setHasGameStarted={setHasGameStarted} player1Pick={player1Pick} setPlayer1Pick={setPlayer1Pick} />}
+      {
+        hasGameStarted 
+          ? gameType === "PVP"
+            ? <GameBoardPVP player1Pick={player1Pick} />
+            : <GameBoardCPU player1Pick={player1Pick} />
+          : <Menu setGameType={setGameType} setHasGameStarted={setHasGameStarted} player1Pick={player1Pick} setPlayer1Pick={setPlayer1Pick} />
+      }
     </>
     )
 }

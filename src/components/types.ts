@@ -1,6 +1,6 @@
 export type Player1Pick = "" | "X" | "O";
 
-export type GameType = "" |"vsCPU" | "vsPlayer2";
+export type GameType = "" |"PVP" | "CPU";
 
 export type MenuProps = {
     setGameType: (gameType: GameType) => void;
@@ -21,5 +21,4 @@ export type MenuMainProps = {
 
 export type GameBoardProps = {
     player1Pick: Player1Pick;
-    gameType: GameType;
 }

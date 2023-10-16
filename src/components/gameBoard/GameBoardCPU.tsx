@@ -1,9 +1,9 @@
 import { GameBoardProps } from "../types.ts";
 
-export const GameBoard = ({gameType, player1Pick}: GameBoardProps) => {
+export const GameBoardCPU = ({player1Pick}: GameBoardProps) => {
     return (
         <>
-            <div>{gameType}</div>
+            <h1>VS CPU youhou</h1>
             <div>{player1Pick}</div>
         </>
     );
