@@ -2,7 +2,7 @@ import './App.css'
 import { GameBoard } from '../components/GameBoard';
 import { Menu } from '../components/Menu';
 import { GameType } from '../components/types.ts';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 
 function App() {
