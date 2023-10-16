@@ -1,17 +1,18 @@
 import './App.css'
 import { GameBoard } from '../components/GameBoard';
 import { Menu } from '../components/Menu';
-import { GameType } from '../components/types.ts';
+import { GameType, Player1Pick } from '../components/types.ts';
 import { useState } from 'react';
 
 
 function App() {
   const [hasGameStarted, setHasGameStarted] = useState<boolean>(false);
   const [gameType, setGameType] = useState<GameType>("");
+  const [player1Pick, setPlayer1Pick] = useState<Player1Pick>("");
 
   return (
     <>
-      {hasGameStarted ? <GameBoard gametype={gameType} /> : <Menu setGameType={setGameType} />}
+      {hasGameStarted ? <GameBoard gameType={gameType} player1Pick={player1Pick} /> : <Menu setGameType={setGameType} setHasGameStarted={setHasGameStarted} player1Pick={player1Pick} setPlayer1Pick={setPlayer1Pick} />}
     </>
     )
 }

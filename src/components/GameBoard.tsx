@@ -1,8 +1,10 @@
-import React from "react";
-import { GameType } from "./types.ts";
+import { GameBoardProps } from "./types.ts";
 
-export const GameBoard = ({gametype}: {gametype: GameType}) => {
+export const GameBoard = ({gameType, player1Pick}: GameBoardProps) => {
     return (
-        <div>Gameboard</div>
+        <>
+            <div>{gameType}</div>
+            <div>{player1Pick}</div>
+        </>
     );
 }
