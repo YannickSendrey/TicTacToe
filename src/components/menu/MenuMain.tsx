@@ -1,4 +1,4 @@
-import { Player1Pick, MenuMainProps } from "./types";
+import { Player1Pick, MenuMainProps } from "../types";
 
 export const MenuMain = ({player1Pick,setPlayer1Pick}: MenuMainProps) => {
     

@@ -1,6 +1,5 @@
-import React from 'react';
 import logo from '/assets/logo.svg';
-import "../css/menu.css";
+import "../../css/menu.css";
 
 export const LogoHeader = () => {
 

@@ -1,4 +1,4 @@
-import { GameType, MenuFooterProps } from "./types";
+import { GameType, MenuFooterProps } from "../types";
 
 export const MenuFooter = ({setGameType, setHasGameStarted}: MenuFooterProps) => {
     const handleClick = (gametype: GameType): undefined => {

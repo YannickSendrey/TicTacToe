@@ -1,4 +1,4 @@
-import { GameBoardProps } from "./types.ts";
+import { GameBoardProps } from "../types.ts";
 
 export const GameBoard = ({gameType, player1Pick}: GameBoardProps) => {
     return (
