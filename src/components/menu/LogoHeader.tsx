@@ -4,6 +4,6 @@ import "../../css/menu.css";
 export const LogoHeader = () => {
 
     return (
-        <img src={logo} alt="logo blue X orange O" id="logo" />
+        <img src={logo} alt="logo blue X and orange O" id="logo" />
     )
 }

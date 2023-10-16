@@ -1,0 +1,34 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo-container, .restart-container, .turn-container {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.logo-container {
+    justify-content: flex-start;
+}
+
+.turn-container {
+    justify-content: center;
+}
+
+.restart-container {
+    justify-content: flex-end;
+}
+
+.logo {
+    padding-left: 20%;
+}
+
+.restart {
+    padding-right: 20%;
+}
+
+
