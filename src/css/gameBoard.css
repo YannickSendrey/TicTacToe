@@ -15,20 +15,44 @@ header {
     justify-content: flex-start;
 }
 
+.logo {
+    padding-left: 30%;
+}
+
+
 .turn-container {
     justify-content: center;
+}
+
+.turn {
+    background-color: rgba(31, 54, 65, 0.8); 
+    width: 60%;
+    height: 3em;
+    border-radius: 0.8em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.turn-logo {
+    width: 20%;
+    filter: grayscale(80%);
 }
 
 .restart-container {
     justify-content: flex-end;
 }
 
-.logo {
-    padding-left: 20%;
-}
-
 .restart {
-    padding-right: 20%;
+    margin-right: 30%;
+    width: 35%;
+    height: 2.8em;
+    background-color: #A8BFC9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.8em;
+    box-shadow: 0px 0.25em #798991;
+
+
 }
-
-
