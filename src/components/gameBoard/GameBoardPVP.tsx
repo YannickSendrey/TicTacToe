@@ -1,6 +1,7 @@
 import { GameBoardProps } from "../types.ts";
 import { Tile } from "./Tile.tsx";
 import { Header } from "./Header.tsx";
+import { Footer } from "./Footer.tsx";
 import '../../css/gameBoard.css';
 
 const generateTiles = () => {
@@ -18,6 +19,7 @@ export const GameBoardPVP = ({player1Pick}: GameBoardProps) => {
             <main className="grid">
                 {generateTiles()}
             </main>
+            <Footer />
         </>
     );
 }

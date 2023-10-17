@@ -61,7 +61,7 @@ header {
 /* main */
 
 .grid {
-    margin: 10%;
+    margin: 10% 15%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -73,4 +73,39 @@ header {
     height: 6em;
     margin: 5%;
     box-shadow: 0px 0.50em #101b20;
+}
+
+.grid-footer {
+    display: flex;
+    margin: 0 10%;
+    justify-content: space-between;
+    align-items: center;
+}  
+
+.score-x, .score-ties, .score-o {
+    width: calc(100% / 3 - 6%);
+    border-radius: 0.8em;
+    height: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    color: black;
+}
+
+.score-x {
+    background-color: #31C3BD;;
+}
+
+.score-ties {
+    background-color: #A8BFC9;;
+}
+
+.score-o {
+    background-color: #F2B137;
+}
+
+.score-number {
+    font-weight: bolder;
 }
