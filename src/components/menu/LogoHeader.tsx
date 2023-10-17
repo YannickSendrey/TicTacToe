@@ -1,5 +1,4 @@
 import logo from '/assets/logo.svg';
-import "../../css/menu.css";
 
 export const LogoHeader = () => {
 

@@ -7,9 +7,9 @@ export const MenuMain = ({player1Pick,setPlayer1Pick}: MenuMainProps) => {
     }
 
     return (
-        <main>
+        <main className="menu-main">
             <h2>PICK PLAYER 1'S MARK</h2>
-            <section>
+            <section className="menu-section">
                 <div className="letterbox" id="xbox" onClick={() => handleClick('X')} style={{
                          filter: player1Pick === 'X' ? 'none' : 'grayscale(80%)' 
                     }}>

@@ -1,3 +1,5 @@
+/* header */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -32,6 +34,7 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    box-shadow: 0px 0.25em #101b20;
 }
 
 .turn-logo {
@@ -53,6 +56,21 @@ header {
     align-items: center;
     border-radius: 0.8em;
     box-shadow: 0px 0.25em #798991;
+}
 
+/* main */
 
+.grid {
+    margin: 10%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile {
+    background-color: rgba(31, 54, 65, 0.8); 
+    border-radius: 0.8em;
+    width: calc(100% / 3 - 10%);
+    height: 6em;
+    margin: 5%;
+    box-shadow: 0px 0.50em #101b20;
 }

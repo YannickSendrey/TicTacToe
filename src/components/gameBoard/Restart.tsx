@@ -1,4 +1,3 @@
-import '../../css/gameBoard.css';
 
 export const Restart = () => {
     return (
@@ -6,6 +5,7 @@ export const Restart = () => {
             <div className='restart'>
                 <img src="/assets/icon-restart.svg" alt="restart game logo" className="restart-logo"></img>
             </div>
+            {/* logic */}
         </div>
     );
 }

@@ -1,4 +1,3 @@
-import '../../css/gameBoard.css';
 
 export const Turn = () => {
     return (
@@ -6,6 +5,7 @@ export const Turn = () => {
             <div className='turn'>
                 <img src="/assets/icon-x.svg" alt="player turn letter" className='turn-logo'/>
                 <h2>TURN</h2>
+                {/* logic */}
             </div>
         </div>
     )
