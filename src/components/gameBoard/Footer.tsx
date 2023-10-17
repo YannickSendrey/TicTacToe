@@ -1,29 +1,8 @@
-import { GameBoardProps } from "../types"
-import { playerX, playerO } from "../types";
+import { PlayerO, PlayerX } from "../types"
 
 
-export const Footer = ({gameType, player1Pick}: GameBoardProps) => {
-    let playerX: playerX = 'X (YOU)';
-    if (gameType === 'CPU' && player1Pick === 'X') {
-        playerX = 'X (YOU)';
-    } else if (gameType === 'CPU' && player1Pick === 'O') {
-        playerX = 'X (CPU)';
-    } else if (gameType === 'PVP' && player1Pick === 'X') {
-        playerX = 'X (PLAYER 1)';
-    } else {
-        playerX = 'X (PLAYER 2)';
-    }
-
-    let playerO: playerO = 'O (CPU)';
-    if (gameType === 'CPU' && player1Pick === 'X') {
-        playerO = 'O (CPU)';
-    } else if (gameType === 'CPU' && player1Pick === 'O') {
-        playerO = 'O (YOU)';
-    } else if (gameType === 'PVP' && player1Pick === 'X') {
-        playerO = 'O (PLAYER 2)';
-    } else {
-        playerO = 'O (PLAYER 1)';
-    }
+export const Footer = ({ players }: {players: [PlayerX, PlayerO]}) => {
+    const [playerX, playerO] = players;
 
 
     return (
