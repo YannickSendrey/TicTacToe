@@ -21,4 +21,9 @@ export type MenuMainProps = {
 
 export type GameBoardProps = {
     player1Pick: Player1Pick;
+    gameType: GameType;
 }
+
+export type playerX = 'X (YOU)' | 'X (CPU)' | 'X (PLAYER 1)' | 'X (PLAYER 2)';
+
+export type playerO = 'O (YOU)' | 'O (CPU)' | 'O (PLAYER 1)' | 'O (PLAYER 2)';

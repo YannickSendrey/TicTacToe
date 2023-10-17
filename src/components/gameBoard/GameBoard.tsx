@@ -12,14 +12,18 @@ const generateTiles = () => {
     return tiles;
 }
 
-export const GameBoardPVP = ({player1Pick}: GameBoardProps) => {
+const handleClick = () => {
+    
+}
+
+export const GameBoard = ({player1Pick, gameType}: GameBoardProps) => {
     return (
         <>
             <Header />
             <main className="grid">
                 {generateTiles()}
             </main>
-            <Footer />
+            <Footer gameType={gameType} player1Pick={player1Pick} />
         </>
     );
 }
