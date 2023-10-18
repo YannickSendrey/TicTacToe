@@ -1,4 +1,4 @@
-import { GameType, MenuFooterProps } from "./types";
+import { GameType, MenuFooterProps } from "../types";
 
 export const MenuFooter = ({setGameType, setHasGameStarted}: MenuFooterProps) => {
     const handleClick = (gametype: GameType): undefined => {
@@ -8,8 +8,8 @@ export const MenuFooter = ({setGameType, setHasGameStarted}: MenuFooterProps) =>
 
     return (
         <footer>
-            <button id="buttonCPU" onClick={() => handleClick('vsCPU')}>NEW GAME (VS CPU)</button>
-            <button id="buttonPlayer" onClick={() => handleClick('vsPlayer2')}>NEW GAME (VS PLAYER)</button>
+            <button id="buttonCPU" onClick={() => handleClick('CPU')}>NEW GAME (VS CPU)</button>
+            <button id="buttonPlayer" onClick={() => handleClick('PVP')}>NEW GAME (VS PLAYER)</button>
         </footer>
     )
 }

@@ -1,6 +1,6 @@
 import './App.css'
-import { GameBoard } from '../components/GameBoard';
-import { Menu } from '../components/Menu';
+import { GameBoard } from '../components/gameBoard/GameBoard.tsx';
+import { Menu } from '../components/menu/Menu.tsx';
 import { GameType, Player1Pick } from '../components/types.ts';
 import { useState } from 'react';
 
@@ -12,7 +12,11 @@ function App() {
 
   return (
     <>
-      {hasGameStarted ? <GameBoard gameType={gameType} player1Pick={player1Pick} /> : <Menu setGameType={setGameType} setHasGameStarted={setHasGameStarted} player1Pick={player1Pick} setPlayer1Pick={setPlayer1Pick} />}
+      {
+        hasGameStarted 
+          ? <GameBoard player1Pick={player1Pick} gameType={gameType} />
+          : <Menu setGameType={setGameType} setHasGameStarted={setHasGameStarted} player1Pick={player1Pick} setPlayer1Pick={setPlayer1Pick} />
+      }
     </>
     )
 }

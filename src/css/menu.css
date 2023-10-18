@@ -13,7 +13,7 @@
     margin: 0 auto;
 }
 
-main {
+.menu-main {
     margin: -5% auto;
     width:80%;
     height: 30%;
@@ -28,7 +28,7 @@ main {
     gap: 15%;
 }
 
-section {
+.menu-section {
     background-color: #202A37;
     display: flex;
     width: 100%;
