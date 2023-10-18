@@ -11,12 +11,12 @@ export const GameBoard = ({player1Pick, gameType}: GameBoardProps) => {
     const generateTiles = () => {
         const tiles = [];
         for (let i = 1; i <= 9; i++) {
-            tiles.push(<Tile key={i} />);
+            tiles.push(<Tile key={i} handleTileClick={handleTileClick} />);
         }
         return tiles;
     }
     
-    const handleClick = () => {
+    const handleTileClick = () => {
         nextTurn === 'X' ? setNextTurn('O') : setNextTurn('X');
     }
     

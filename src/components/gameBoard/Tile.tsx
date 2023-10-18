@@ -1,7 +1,9 @@
 
 
-export const Tile = () => {
+export const Tile = ( { handleTileClick }: { handleTileClick: () => void} ) => {
     return (
-        <div className="tile"></div>
+        <div className="tile" onClick={handleTileClick}>
+            <img src="" alt="" />
+        </div>
     );
 }
