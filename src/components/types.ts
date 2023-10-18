@@ -24,8 +24,21 @@ export type GameBoardProps = {
     gameType: GameType;
 }
 
-export type nextTurn = 'X' | 'O';
+export type NextTurn = 'X' | 'O';
+
+export type TileSymbol = '' | '/assets/icon-x.svg' | '/assets/icon-o.svg';
 
 export type PlayerX = 'X (YOU)' | 'X (CPU)' | 'X (PLAYER 1)' | 'X (PLAYER 2)';
 
 export type PlayerO = 'O (YOU)' | 'O (CPU)' | 'O (PLAYER 1)' | 'O (PLAYER 2)';
+
+export type TileProps = {
+    handleTileClick: (id: number) => void;
+    tilesSymbols: TileSymbol[];
+    id: number;
+}
+
+export type HeaderProps = {
+    nextTurn: NextTurn;
+    handleResetClick: () => void;
+}

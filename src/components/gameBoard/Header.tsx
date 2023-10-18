@@ -1,14 +1,14 @@
 import { GameBoardLogo } from "./GameBoardLogo"
 import { Restart } from "./Restart"
 import { Turn } from "./Turn"
-import { nextTurn } from "../types"
+import { HeaderProps } from "../types"
 
-export const Header = ({ nextTurn }: { nextTurn: nextTurn}) => {
+export const Header = ({ nextTurn, handleResetClick }: HeaderProps) => {
     return (
         <header>
             <GameBoardLogo />
             <Turn nextTurn={nextTurn} />
-            <Restart />
+            <Restart handleResetClick={handleResetClick} />
         </header>
     )
 }
