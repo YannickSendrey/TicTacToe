@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1Pick, setGameType}: GameBoardProps) => {
     const [nextTurn, setNextTurn] = useState<NextTurn>('X');
-    const [tilesSymbols, setTilesSymbols] = useState<TileSymbol[]>(['', '', '', '', '', '', '', '', '']);
+    const [tilesSymbols, setTilesSymbols] = useState<TileSymbol[]>(Array(9).fill(''));
 
     
     const generateTiles = () => {
@@ -21,7 +21,7 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
     const handleMenuClick = () => {
         setHasGameStarted(false);
         setNextTurn('X');
-        setTilesSymbols(['', '', '', '', '', '', '', '', '']);
+        setTilesSymbols(Array(9).fill(''));
         setGameType('');
         setPlayer1Pick('');
     }
@@ -32,7 +32,6 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
             nextTurn === 'X' ? setNextTurn('O') : setNextTurn('X');
             tilesSymbols[id] = nextTurn === 'X' ? '/assets/icon-x.svg' : '/assets/icon-o.svg';
         }
-       
     }
 
     const handleResetClick = (): void => {
