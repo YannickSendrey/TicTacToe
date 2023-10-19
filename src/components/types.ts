@@ -22,6 +22,9 @@ export type MenuMainProps = {
 export type GameBoardProps = {
     player1Pick: Player1Pick;
     gameType: GameType;
+    setHasGameStarted: (boolean: boolean) => void;
+    setPlayer1Pick: (player1Pick: Player1Pick) => void;
+    setGameType: (gameType: GameType) => void;
 }
 
 export type NextTurn = 'X' | 'O';
@@ -41,4 +44,5 @@ export type TileProps = {
 export type HeaderProps = {
     nextTurn: NextTurn;
     handleResetClick: () => void;
+    handleMenuClick: () => void;
 }

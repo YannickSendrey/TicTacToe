@@ -3,15 +3,13 @@ import { Tile } from "./Tile.tsx";
 import { Header } from "./Header.tsx";
 import { Footer } from "./Footer.tsx";
 import '../../css/gameBoard.css';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export const GameBoard = ({player1Pick, gameType}: GameBoardProps) => {
+export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1Pick, setGameType}: GameBoardProps) => {
     const [nextTurn, setNextTurn] = useState<NextTurn>('X');
     const [tilesSymbols, setTilesSymbols] = useState<TileSymbol[]>(['', '', '', '', '', '', '', '', '']);
 
-    /* setState dans handleTileClick */
-
-
+    
     const generateTiles = () => {
         const tiles = [];
         for (let i = 0; i < 9; i++) {
@@ -19,6 +17,15 @@ export const GameBoard = ({player1Pick, gameType}: GameBoardProps) => {
         }
         return tiles;
     }
+
+    const handleMenuClick = () => {
+        setHasGameStarted(false);
+        setNextTurn('X');
+        setTilesSymbols(['', '', '', '', '', '', '', '', '']);
+        setGameType('');
+        setPlayer1Pick('');
+    }
+
     
     const handleTileClick = (id: number): void => {
         if (tilesSymbols[id] === '') {
@@ -68,7 +75,7 @@ export const GameBoard = ({player1Pick, gameType}: GameBoardProps) => {
 
     return (
         <>
-            <Header nextTurn={nextTurn} handleResetClick={handleResetClick} />
+            <Header nextTurn={nextTurn} handleResetClick={handleResetClick} handleMenuClick={handleMenuClick} />
             <main className="grid">
                 {generateTiles()}
             </main>

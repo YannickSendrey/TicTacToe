@@ -14,7 +14,7 @@ function App() {
     <>
       {
         hasGameStarted 
-          ? <GameBoard player1Pick={player1Pick} gameType={gameType} />
+          ? <GameBoard player1Pick={player1Pick} gameType={gameType} setHasGameStarted={setHasGameStarted} setGameType={setGameType} setPlayer1Pick={setPlayer1Pick} />
           : <Menu setGameType={setGameType} setHasGameStarted={setHasGameStarted} player1Pick={player1Pick} setPlayer1Pick={setPlayer1Pick} />
       }
     </>
