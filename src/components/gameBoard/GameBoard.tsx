@@ -1,23 +1,43 @@
-import { GameBoardProps, PlayerX, PlayerO, nextTurn } from "../types.ts";
+import { GameBoardProps, PlayerX, PlayerO, NextTurn, TileSymbol } from "../types.ts";
 import { Tile } from "./Tile.tsx";
 import { Header } from "./Header.tsx";
 import { Footer } from "./Footer.tsx";
 import '../../css/gameBoard.css';
 import { useState } from "react";
 
-export const GameBoard = ({player1Pick, gameType}: GameBoardProps) => {
-    const [nextTurn, setNextTurn] = useState<nextTurn>('X');
+export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1Pick, setGameType}: GameBoardProps) => {
+    const [nextTurn, setNextTurn] = useState<NextTurn>('X');
+    const [tilesSymbols, setTilesSymbols] = useState<TileSymbol[]>(['', '', '', '', '', '', '', '', '']);
 
+    
     const generateTiles = () => {
         const tiles = [];
-        for (let i = 1; i <= 9; i++) {
-            tiles.push(<Tile key={i} handleTileClick={handleTileClick} />);
+        for (let i = 0; i < 9; i++) {
+            tiles.push(<Tile key={i} id={i} handleTileClick={handleTileClick} tilesSymbols={tilesSymbols} />);
         }
         return tiles;
     }
+
+    const handleMenuClick = () => {
+        setHasGameStarted(false);
+        setNextTurn('X');
+        setTilesSymbols(['', '', '', '', '', '', '', '', '']);
+        setGameType('');
+        setPlayer1Pick('');
+    }
+
     
-    const handleTileClick = () => {
-        nextTurn === 'X' ? setNextTurn('O') : setNextTurn('X');
+    const handleTileClick = (id: number): void => {
+        if (tilesSymbols[id] === '') {
+            nextTurn === 'X' ? setNextTurn('O') : setNextTurn('X');
+            tilesSymbols[id] = nextTurn === 'X' ? '/assets/icon-x.svg' : '/assets/icon-o.svg';
+        }
+       
+    }
+
+    const handleResetClick = (): void => {
+        setNextTurn('X');
+        setTilesSymbols(['', '', '', '', '', '', '', '', '']);
     }
     
     // handle footer players logic 
@@ -55,7 +75,7 @@ export const GameBoard = ({player1Pick, gameType}: GameBoardProps) => {
 
     return (
         <>
-            <Header nextTurn={nextTurn} />
+            <Header nextTurn={nextTurn} handleResetClick={handleResetClick} handleMenuClick={handleMenuClick} />
             <main className="grid">
                 {generateTiles()}
             </main>

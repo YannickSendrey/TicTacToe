@@ -58,6 +58,11 @@ header {
     box-shadow: 0px 0.25em #798991;
 }
 
+.logo:hover, .restart:hover {
+    cursor: pointer;
+    filter: grayscale(50%);
+}
+
 /* main */
 
 .grid {
@@ -73,6 +78,13 @@ header {
     height: 6em;
     margin: 5%;
     box-shadow: 0px 0.50em #101b20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tileImg {
+    width: 50%;
 }
 
 .grid-footer {
