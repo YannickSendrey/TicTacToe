@@ -58,6 +58,11 @@ header {
     box-shadow: 0px 0.25em #798991;
 }
 
+.logo:hover, .restart:hover {
+    cursor: pointer;
+    filter: grayscale(50%);
+}
+
 /* main */
 
 .grid {

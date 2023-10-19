@@ -10,13 +10,12 @@ export type MenuProps = {
 }
 
 export type MenuFooterProps = {
-    setGameType: (gameType: GameType) => void;
-    setHasGameStarted: (hasGameStarted: boolean) => void;
+    handleLaunchClick: (gametype: GameType) => void;
 }
 
 export type MenuMainProps = {
     player1Pick: Player1Pick;
-    setPlayer1Pick: (player1Pick: Player1Pick) => void;
+    handlePickClick: (player1Pick: Player1Pick) => void;
 }
 
 export type GameBoardProps = {

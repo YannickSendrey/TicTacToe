@@ -1,21 +1,18 @@
-import { Player1Pick, MenuMainProps } from "../types";
+import { MenuMainProps } from "../types";
 
-export const MenuMain = ({player1Pick,setPlayer1Pick}: MenuMainProps) => {
+export const MenuMain = ({player1Pick, handlePickClick}: MenuMainProps) => {
     
-    const handleClick = (pick: Player1Pick): undefined => {
-        setPlayer1Pick(pick);
-    }
 
     return (
         <main className="menu-main">
             <h2>PICK PLAYER 1'S MARK</h2>
             <section className="menu-section">
-                <div className="letterbox" id="xbox" onClick={() => handleClick('X')} style={{
+                <div className="letterbox" id="xbox" onClick={() => handlePickClick('X')} style={{
                          filter: player1Pick === 'X' ? 'none' : 'grayscale(80%)' 
                     }}>
                     <img src="/assets/icon-x.svg" alt="blue X" className="letterImg" />
                 </div>
-                <div className="letterbox" id="obox" onClick={() => handleClick('O')}>
+                <div className="letterbox" id="obox" onClick={() => handlePickClick('O')}>
                     <img src="/assets/icon-o.svg" alt="orange O" id="o" className="letterImg" style={{
                          filter: player1Pick === 'O' ? 'none' : 'invert(100%) brightness(10%)' 
                     }} />
