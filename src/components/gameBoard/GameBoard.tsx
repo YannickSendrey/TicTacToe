@@ -3,11 +3,37 @@ import { Tile } from "./Tile.tsx";
 import { Header } from "./Header.tsx";
 import { Footer } from "./Footer.tsx";
 import '../../css/gameBoard.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1Pick, setGameType}: GameBoardProps) => {
     const [nextTurn, setNextTurn] = useState<NextTurn>('X');
-    const [tilesSymbols, setTilesSymbols] = useState<TileSymbol[]>(['', '', '', '', '', '', '', '', '']);
+    const [tilesSymbols, setTilesSymbols] = useState<TileSymbol[]>(Array(9).fill(''));
+    const [winCondition, setWinCondition] = useState<boolean>(false);
+    const [XScore, setXScore] = useState<number>(0);
+    const [OScore, setOScore] = useState<number>(0);
+    const [tiesScore, setTiesScore] = useState<number>(0);
+
+    useEffect(() => {
+    if (winCondition) {
+        setTimeout(() => {
+            if (nextTurn === 'X') {
+                alert('O has won the game!');
+                setOScore(OScore + 1);
+            } else if (nextTurn === 'O') {
+                alert('X has won the game!');
+                setXScore(XScore + 1);
+            }
+
+        }, 200);
+    }
+
+    if (!winCondition && !tilesSymbols.includes('')) {
+        setTimeout(() => {
+            alert('Tie!');
+            setTiesScore(tiesScore + 1);
+        }, 200);
+    }
+    }, [winCondition, nextTurn]);
 
     
     const generateTiles = () => {
@@ -18,26 +44,52 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
         return tiles;
     }
 
-    const handleMenuClick = () => {
+    
+    const checkIfWinCondition = (): void => {
+        const winCombinations = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+          ];
+        // Check if any of the win combinations are met
+        for (const combination of winCombinations) {
+          const [a, b, c] = combination;
+          if (tilesSymbols[a] === tilesSymbols[b] && tilesSymbols[b] === tilesSymbols[c] && tilesSymbols[a] !== '') {
+            setWinCondition(true);
+            return; // Sort the loop early when a win condition is found
+          }
+        }
+      };
+
+
+    const handleMenuClick = (): void => {
         setHasGameStarted(false);
         setNextTurn('X');
-        setTilesSymbols(['', '', '', '', '', '', '', '', '']);
+        setTilesSymbols(Array(9).fill(''));
+        setWinCondition(false);
         setGameType('');
         setPlayer1Pick('');
     }
 
     
     const handleTileClick = (id: number): void => {
-        if (tilesSymbols[id] === '') {
+        if (tilesSymbols[id] === '' && !winCondition) {
             nextTurn === 'X' ? setNextTurn('O') : setNextTurn('X');
             tilesSymbols[id] = nextTurn === 'X' ? '/assets/icon-x.svg' : '/assets/icon-o.svg';
+            checkIfWinCondition();
         }
-       
+
     }
 
     const handleResetClick = (): void => {
         setNextTurn('X');
         setTilesSymbols(['', '', '', '', '', '', '', '', '']);
+        setWinCondition(false);
     }
     
     // handle footer players logic 
@@ -79,7 +131,7 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
             <main className="grid">
                 {generateTiles()}
             </main>
-            <Footer players={players} />
+            <Footer players={players} XScore={XScore} OScore={OScore} tiesScore={tiesScore} />
         </>
     );
 }

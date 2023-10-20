@@ -45,3 +45,10 @@ export type HeaderProps = {
     handleResetClick: () => void;
     handleMenuClick: () => void;
 }
+
+export type FooterProps = {
+    players: [PlayerX, PlayerO];
+    XScore: number;
+    OScore: number;
+    tiesScore: number;
+}
