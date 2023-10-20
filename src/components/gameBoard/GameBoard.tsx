@@ -15,18 +15,23 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
 
     useEffect(() => {
     if (winCondition) {
-        if (nextTurn === 'X') {
-            alert('O has won the game!');
-            setOScore(OScore + 1);
-        } else if (nextTurn === 'O') {
-            alert('X has won the game!');
-            setXScore(XScore + 1);
-        }
+        setTimeout(() => {
+            if (nextTurn === 'X') {
+                alert('O has won the game!');
+                setOScore(OScore + 1);
+            } else if (nextTurn === 'O') {
+                alert('X has won the game!');
+                setXScore(XScore + 1);
+            }
+
+        }, 200);
     }
 
     if (!winCondition && !tilesSymbols.includes('')) {
-        alert('Tie!');
-        setTiesScore(tiesScore + 1);
+        setTimeout(() => {
+            alert('Tie!');
+            setTiesScore(tiesScore + 1);
+        }, 200);
     }
     }, [winCondition, nextTurn]);
 
@@ -41,39 +46,25 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
 
     
     const checkIfWinCondition = (): void => {
-        if (tilesSymbols[0] === tilesSymbols[1] && tilesSymbols[1] === tilesSymbols[2] && tilesSymbols[0] !== '') {
+        const winCombinations = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+          ];
+        // Check if any of the win combinations are met
+        for (const combination of winCombinations) {
+          const [a, b, c] = combination;
+          if (tilesSymbols[a] === tilesSymbols[b] && tilesSymbols[b] === tilesSymbols[c] && tilesSymbols[a] !== '') {
             setWinCondition(true);
-        } 
-
-        if (tilesSymbols[3] === tilesSymbols[4] && tilesSymbols[3] === tilesSymbols[5] && tilesSymbols[3] !== '') {
-            setWinCondition(true);
+            return; // Sort the loop early when a win condition is found
+          }
         }
-
-        if (tilesSymbols[6] === tilesSymbols[7] && tilesSymbols[6] === tilesSymbols[8] && tilesSymbols[6] !== '') {
-            setWinCondition(true);
-        }
-
-        if (tilesSymbols[0] === tilesSymbols[3] && tilesSymbols[0] === tilesSymbols[6] && tilesSymbols[0] !== '') {
-            setWinCondition(true);
-        }
-
-        if (tilesSymbols[1] === tilesSymbols[4] && tilesSymbols[1] === tilesSymbols[7] && tilesSymbols[1] !== '') {
-            setWinCondition(true);
-        }
-
-        if (tilesSymbols[2] === tilesSymbols[5] && tilesSymbols[2] === tilesSymbols[8] && tilesSymbols[2] !== '') {
-            setWinCondition(true);
-        }
-
-        if (tilesSymbols[0] === tilesSymbols[4] && tilesSymbols[0] === tilesSymbols[8] && tilesSymbols[0] !== '') {
-            setWinCondition(true);
-        }
-
-        if (tilesSymbols[2] === tilesSymbols[4] && tilesSymbols[2] === tilesSymbols[6] && tilesSymbols[2] !== '') {
-            setWinCondition(true);
-        }
-
-    }
+      };
 
 
     const handleMenuClick = (): void => {
