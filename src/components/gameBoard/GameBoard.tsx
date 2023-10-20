@@ -8,6 +8,7 @@ import { useState } from "react";
 export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1Pick, setGameType}: GameBoardProps) => {
     const [nextTurn, setNextTurn] = useState<NextTurn>('X');
     const [tilesSymbols, setTilesSymbols] = useState<TileSymbol[]>(Array(9).fill(''));
+    const [winCondition, setWinCondition] = useState<boolean>(false);
 
     
     const generateTiles = () => {
@@ -18,10 +19,48 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
         return tiles;
     }
 
-    const handleMenuClick = () => {
+    
+    const checkIfWinCondition = (): void => {
+        if (tilesSymbols[0] === tilesSymbols[1] && tilesSymbols[1] === tilesSymbols[2] && tilesSymbols[0] !== '') {
+            setWinCondition(true);
+        } 
+
+        if (tilesSymbols[3] === tilesSymbols[4] && tilesSymbols[3] === tilesSymbols[5] && tilesSymbols[3] !== '') {
+            setWinCondition(true);
+        }
+
+        if (tilesSymbols[6] === tilesSymbols[7] && tilesSymbols[6] === tilesSymbols[8] && tilesSymbols[6] !== '') {
+            setWinCondition(true);
+        }
+
+        if (tilesSymbols[0] === tilesSymbols[3] && tilesSymbols[0] === tilesSymbols[6] && tilesSymbols[0] !== '') {
+            setWinCondition(true);
+        }
+
+        if (tilesSymbols[1] === tilesSymbols[4] && tilesSymbols[1] === tilesSymbols[7] && tilesSymbols[1] !== '') {
+            setWinCondition(true);
+        }
+
+        if (tilesSymbols[2] === tilesSymbols[5] && tilesSymbols[2] === tilesSymbols[8] && tilesSymbols[2] !== '') {
+            setWinCondition(true);
+        }
+
+        if (tilesSymbols[0] === tilesSymbols[4] && tilesSymbols[0] === tilesSymbols[8] && tilesSymbols[0] !== '') {
+            setWinCondition(true);
+        }
+
+        if (tilesSymbols[2] === tilesSymbols[4] && tilesSymbols[2] === tilesSymbols[6] && tilesSymbols[2] !== '') {
+            setWinCondition(true);
+        }
+
+    }
+
+
+    const handleMenuClick = (): void => {
         setHasGameStarted(false);
         setNextTurn('X');
         setTilesSymbols(Array(9).fill(''));
+        setWinCondition(false);
         setGameType('');
         setPlayer1Pick('');
     }
@@ -31,12 +70,16 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
         if (tilesSymbols[id] === '') {
             nextTurn === 'X' ? setNextTurn('O') : setNextTurn('X');
             tilesSymbols[id] = nextTurn === 'X' ? '/assets/icon-x.svg' : '/assets/icon-o.svg';
+            checkIfWinCondition();
         }
+
+
     }
 
     const handleResetClick = (): void => {
         setNextTurn('X');
         setTilesSymbols(['', '', '', '', '', '', '', '', '']);
+        setWinCondition(false);
     }
     
     // handle footer players logic 
