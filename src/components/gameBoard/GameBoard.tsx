@@ -78,7 +78,7 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
 
     
     const handleTileClick = (id: number): void => {
-        if (tilesSymbols[id] === '') {
+        if (tilesSymbols[id] === '' && !winCondition) {
             nextTurn === 'X' ? setNextTurn('O') : setNextTurn('X');
             tilesSymbols[id] = nextTurn === 'X' ? '/assets/icon-x.svg' : '/assets/icon-o.svg';
             checkIfWinCondition();
