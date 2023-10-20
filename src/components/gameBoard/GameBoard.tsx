@@ -3,12 +3,32 @@ import { Tile } from "./Tile.tsx";
 import { Header } from "./Header.tsx";
 import { Footer } from "./Footer.tsx";
 import '../../css/gameBoard.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1Pick, setGameType}: GameBoardProps) => {
     const [nextTurn, setNextTurn] = useState<NextTurn>('X');
     const [tilesSymbols, setTilesSymbols] = useState<TileSymbol[]>(Array(9).fill(''));
     const [winCondition, setWinCondition] = useState<boolean>(false);
+    const [XScore, setXScore] = useState<number>(0);
+    const [OScore, setOScore] = useState<number>(0);
+    const [tiesScore, setTiesScore] = useState<number>(0);
+
+    useEffect(() => {
+    if (winCondition) {
+        if (nextTurn === 'X') {
+            alert('O has won the game!');
+            setOScore(OScore + 1);
+        } else if (nextTurn === 'O') {
+            alert('X has won the game!');
+            setXScore(XScore + 1);
+        }
+    }
+
+    if (!winCondition && !tilesSymbols.includes('')) {
+        alert('Tie!');
+        setTiesScore(tiesScore + 1);
+    }
+    }, [winCondition, nextTurn]);
 
     
     const generateTiles = () => {
@@ -73,7 +93,6 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
             checkIfWinCondition();
         }
 
-
     }
 
     const handleResetClick = (): void => {
@@ -121,7 +140,7 @@ export const GameBoard = ({player1Pick, gameType, setHasGameStarted, setPlayer1P
             <main className="grid">
                 {generateTiles()}
             </main>
-            <Footer players={players} />
+            <Footer players={players} XScore={XScore} OScore={OScore} tiesScore={tiesScore} />
         </>
     );
 }
