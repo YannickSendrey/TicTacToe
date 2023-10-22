@@ -1,22 +1,117 @@
+@media all and (max-width: 774px) {
+    #container {
+        margin-top: 10%;
+        gap: 8%;
+    }
+
+    .menu-main {
+        height: 30%;
+        width:80%;
+    }
+
+    #logo {
+        margin: 0 auto;
+        width: 15%;
+    }
+
+    button {
+        width:90%;
+        height: 4em;
+        margin: 0 5% 3% 5%;
+    }
+}
+
+@media all and (min-width: 775px) {
+    #container {
+        margin-top: 2%;
+        gap: 8%;
+    }
+
+    .menu-main {
+        height: 40%;
+        width:80%;
+    }
+
+    #logo {
+        margin: 5% auto;
+        width: 15%;
+    }
+
+    button {
+        width:90%;
+        height: 4em;
+        margin: 0 5% 3% 5%;
+    }
+
+    #buttonCPU {
+        margin-top: 3%;
+    }
+}
+
+@media all and (min-width: 1000px) {
+    #container {
+        margin-top: 2%;
+        gap: 8%;
+    }
+
+    .menu-main {
+        height: 40%;
+        width:60%;
+    }
+
+    #logo {
+        margin: 5% auto;
+        width: 10%;
+    }
+
+    button {
+        width:70%;
+        height: 4em;
+        margin: 0 15% 3% 15%;
+    }
+
+    #buttonCPU {
+        margin-top: 3%;
+    }
+}
+
+@media all and (min-width: 1250px) {
+    #container {
+        margin-top: 1%;
+        gap: 7%;
+    }
+
+    .menu-main {
+        height: 40%;
+        width:60%;
+    }
+
+    #logo {
+        margin: 5% auto;
+        width: 8%;
+    }
+
+    button {
+        width:70%;
+        height: 4.5em;
+        margin: 0 15% 2% 15%;
+    }
+
+    #buttonCPU {
+        margin-top: 3%;
+    }
+}
+
 #container {
-    margin-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    gap: 8%;
     
-}
-
-#logo {
-    width: 15%;
-    margin: 0 auto;
 }
 
 .menu-main {
     margin: -5% auto;
-    width:80%;
-    height: 30%;
     background-color: rgba(31, 54, 65, 0.8);
     padding: 5%;
     border-radius: 0.8em;
@@ -70,10 +165,7 @@ h2 {
 }
 
 button {
-    margin: 0 5% 3% 5%;
     border: none;
-    width:90%;
-    height: 4em;
     border-radius: 0.8em;
     font-weight: bolder;
 }
